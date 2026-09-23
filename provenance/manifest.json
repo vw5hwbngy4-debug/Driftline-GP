@@ -1,0 +1,35 @@
+{
+  "name": "Driftline GP Provenance Archive — Made From Chat mirror",
+  "base_url": "https://mygptgames.com/games/driftline-gp/provenance/",
+  "latest_indexed_build": "v93",
+  "indexed_html_builds": 83,
+  "updated": "2026-08-19",
+  "description": "Made From Chat mirror of the public Driftline GP version archive: a Mode-7-style browser kart racer developed through preserved human–GPT iteration.",
+  "non_affiliation_notice": "Driftline GP uses original code, original procedural art, original racers and original track layouts. It is not affiliated with Nintendo and does not use Nintendo code, assets, characters, audio or track data.",
+  "latest_files": [
+    "driftline_gp_v91_tt_assen_1_6x_world_scale.html",
+    "driftline_gp_v92_tt_assen_clockwise_official_detail_pass.html",
+    "driftline_gp_v93_green_shield_tap_fire_longpress_drop.html"
+  ],
+  "latest_update": "v87–v93 form the TT Assen / follow-up development run created during and immediately after a visit to Jack’s Racing Day 2026 on 2 August 2026, with v93 restoring green-shield tap-to-fire and long-press-to-drop input behavior.",
+  "files_to_add": [],
+  "latest_file": {
+    "filename": "driftline_gp_v93_green_shield_tap_fire_longpress_drop.html",
+    "size_bytes": 669527,
+    "size_kib": 654,
+    "sha256": "f529f5a890d9374b3e5cee954ba64669c624361bd568d2487be57c43a095248d"
+  },
+  "field_provenance_event": {
+    "name": "Jack’s Racing Day 2026",
+    "date": "2026-08-02",
+    "context": "TT Assen development session during the event visit",
+    "build_range": "v87–v93",
+    "evidence_media": [
+      "media/jacks-racing-day-2026-tt-assen-01.jpg",
+      "media/jacks-racing-day-2026-tt-assen-02.jpg",
+      "media/jacks-racing-day-2026-tt-assen-03.jpg",
+      "media/jacks-racing-day-2026-tt-assen-04.jpg",
+      "media/human-gpt-tt-assen-session.jpg"
+    ]
+  }
+}

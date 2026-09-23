@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Driftline GP — Provenance Archive</title>
+<style>
+:root {
+  --bg:#07101d; --panel:#101a2d; --ink:#f7f2d8; --muted:#b9c2d6;
+  --line:#263653; --accent:#ffd86b; --blue:#79dcff; --green:#8eff9f;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:linear-gradient(180deg,#07101d,#0b1426 42%,#060914);
+  color:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  line-height:1.55;
+}
+header { padding:42px 20px 22px; max-width:1120px; margin:0 auto; }
+h1 { margin:0; font-size:clamp(30px,6vw,58px); letter-spacing:-.04em; line-height:.95; }
+h1 span { display:block; color:var(--accent); }
+.lede { max-width:850px; color:var(--muted); font-size:17px; }
+.badges { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
+.badge { border:1px solid var(--line); border-radius:999px; padding:7px 11px; background:rgba(255,255,255,.04); color:var(--green); }
+main { max-width:1120px; margin:0 auto 80px; padding:0 20px; }
+.card {
+  background:rgba(16,26,45,.82); border:1px solid var(--line); border-radius:18px;
+  box-shadow:0 20px 70px rgba(0,0,0,.25); padding:20px; margin:18px 0;
+}
+h2 { margin:0 0 12px; color:var(--blue); font-size:22px; }
+a { color:#ffe58b; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.stat { background:#0a1324; border:1px solid var(--line); border-radius:14px; padding:15px; }
+.stat b { display:block; font-size:28px; color:var(--accent); }
+ul { padding-left:22px; }
+.controls { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:16px 0; }
+input, select {
+  background:#07101d; color:var(--ink); border:1px solid var(--line); border-radius:10px;
+  padding:10px; font:inherit;
+}
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th,td { border-bottom:1px solid var(--line); padding:10px 8px; vertical-align:top; }
+th { color:var(--blue); text-align:left; position:sticky; top:0; background:#101a2d; }
+.ver { color:var(--accent); font-weight:700; white-space:nowrap; }
+.file { color:#8e9ab4; font-size:12px; word-break:break-all; }
+code { color:#9ef0ff; }
+.note { color:var(--muted); font-size:14px; }
+.footer { color:#8290ad; margin-top:26px; font-size:13px; }
+.event-card { border-color:#5e784a; background:linear-gradient(145deg,rgba(25,46,37,.94),rgba(16,26,45,.9)); }
+.event-kicker { color:var(--green); font-size:12px; font-weight:800; letter-spacing:.09em; margin-bottom:8px; }
+.event-date { color:var(--accent); font-weight:800; }
+.provenance-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
+.provenance-gallery figure { margin:0; background:#07101d; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+.provenance-gallery img { width:100%; height:260px; object-fit:cover; display:block; background:#050b14; }
+.provenance-gallery figure.output img { object-fit:contain; }
+.provenance-gallery figcaption { padding:9px 11px 11px; color:var(--muted); font-size:12px; }
+@media(max-width:700px){ .provenance-gallery{grid-template-columns:1fr}.provenance-gallery img{height:auto;max-height:420px;object-fit:contain} }
+</style>
+<link href="https://mygptgames.com/games/driftline-gp/provenance/" rel="canonical"/><meta content="https://mygptgames.com/games/driftline-gp/provenance/" property="og:url"/><meta content="Driftline GP" name="aiprojectfiles:game"/></head>
+<body>
+<header><div style="font-size:12px;color:#8eff9f;margin-bottom:10px">MADE FROM CHAT ATTRACTION PROVENANCE MIRROR • HUMAN–GPT ITERATION</div>
+<h1>Driftline GP <span>Provenance Archive</span></h1>
+<p class="lede">
+    Public version archive for Driftline GP, an original GPT-assisted pseudo-3D browser kart racer built through preserved human–GPT iteration.
+    The archive documents playable HTML builds from the early prototype through v93, including cups, CPU rivals, items, minimap logic, Free Ride, StateLens live state plates, desktop-resolution scaling, directional keyboard drifting, and the TT Assen first-cup development sequence created during a visit to Jack’s Racing Day 2026 on 2 August 2026.
+  </p>
+<div class="badges">
+<span class="badge">83 HTML builds mirrored</span>
+<span class="badge">range: v1/index → v93</span>
+<span class="badge">base URL: https://aiprojectfiles.com/gpt-mode-7-kart-racer/</span>
+<span class="badge">updated: 2026-08-19</span>
+</div>
+</header>
+<main>
+<section class="grid">
+<div class="stat"><b>83</b>playable HTML artifacts in this archive</div>
+<div class="stat"><b>v93</b>latest mirrored build</div>
+<div class="stat"><b>SHA-256</b>hash prefix recorded for each file</div>
+</section>
+<section class="card event-card" id="jacks-racing-day-2026">
+<div class="event-kicker">FIELD PROVENANCE • TT ASSEN</div>
+<h2>Jack’s Racing Day 2026 development session</h2>
+<p><span class="event-date">2 August 2026</span> — Driftline GP builds <b>v87 through v93</b> were created during and immediately after a visit to <b>Jack’s Racing Day 2026</b>. The session used on-site TT Assen visual reference and continued through the human–GPT chat workflow, turning the circuit visit into a preserved run of playable HTML iterations and follow-up control refinement.</p>
+<p class="note">The attached material below is preserved as development context: trackside reference photographs, an in-game TT Assen track capture from the resulting build sequence, and a chat-session capture showing the TT Assen first-cup request inside the conversational development workflow.</p>
+<div class="badges"><span class="badge">event build range: v87 → v93</span><span class="badge">date: 2026-08-02</span><span class="badge">workflow: human + GPT chat</span><span class="badge">context: Jack’s Racing Day 2026</span></div>
+<div class="provenance-gallery">
+<figure><img loading="lazy" src="./media/jacks-racing-day-2026-tt-assen-01.jpg" alt="TT Assen circuit reference photographed during Jack's Racing Day 2026"/><figcaption>On-site TT Assen circuit reference photographed during the 2 August 2026 visit.</figcaption></figure>
+<figure><img loading="lazy" src="./media/jacks-racing-day-2026-tt-assen-02.jpg" alt="Trackside racing reference from Jack's Racing Day 2026"/><figcaption>Trackside racing reference from Jack’s Racing Day 2026.</figcaption></figure>
+<figure><img loading="lazy" src="./media/jacks-racing-day-2026-tt-assen-03.jpg" alt="TT Assen trackside reference with Cathedral of Speed signage"/><figcaption>Additional TT Assen trackside reference from the same visit.</figcaption></figure>
+<figure class="output"><img loading="lazy" src="./media/jacks-racing-day-2026-tt-assen-04.jpg" alt="Driftline GP TT Assen in-game track capture produced during the development sequence"/><figcaption>In-game TT Assen track capture from the v87–v93 development sequence.</figcaption></figure>
+<figure class="output"><img loading="lazy" src="./media/human-gpt-tt-assen-session.jpg" alt="Human GPT chat development session for the Driftline GP TT Assen first cup"/><figcaption>Human–GPT chat provenance: the TT Assen first-cup request and attached references during the development session.</figcaption></figure>
+</div>
+</section>
+<section class="card">
+<h2>Milestone timeline</h2>
+<ul><li><b>v1 / index</b> — Initial playable browser prototype.</li>
+<li><b>v4</b> — Start grid, shell-like item behavior, HUD layer.</li>
+<li><b>v8–v12</b> — DS-style map, coins, position/rescue/timer/items, hit state.</li>
+<li><b>v18–v26</b> — Track redesign, tilemap/biome expansion, beach/ghost/rescue systems.</li>
+<li><b>v28–v31</b> — CC classes, rubberband AI, results/cup styling.</li>
+<li><b>v35–v46</b> — Lap/finish/result/cup-point flow hardening.</li>
+<li><b>v47–v57</b> — Optimized roster, drift repair, CPU overtake/rivals, CC/menu/cup simplification.</li>
+<li><b>v58–v65</b> — Handmade Track 1 conversion and visual/asset integration.</li>
+<li><b>v66–v73</b> — Minimap/racer color consistency, wall/projectile logic, aura state visualization.</li>
+<li><b>v74–v77</b> — Crisp retro rendering, anti-stuck rescue, Free Ride track select.</li>
+<li><b>v78–v80</b> — StateLens live state plates, lowered rear plates, and drift mapped to Scout Left / Scout Right operators.</li>
+<li><b>v81</b> — Track 1 item blocks changed from question blocks to lightning blocks for first-cup visual consistency.</li>
+<li><b>v82</b> — Desktop layout rebuilt with the playscreen and minimap stacked vertically, higher PC-only rendering resolution, hidden touch controls on desktop, and a persistent keyboard legend.</li>
+<li><b>v83</b> — Keyboard drift changed from one ambiguous Space action to directional operators: <code>A = drift left</code> and <code>D = drift right</code>, selecting the matching drift state and animation.</li>
+<li><b>v84</b> — Added a first-paint <code>LOADING</code> screen with sequential dots and frame-yielding procedural track construction.</li><li><b>v85</b> — Hardened race-counter text, off-road slowdown, seeker speed and hold-behind release behavior for the dropper and green bouncer.</li><li><b>v86</b> — Added visible held-item feedback behind the kart while preserving the v85 release logic.</li>
+<li><b>v87–v93 • Jack’s Racing Day 2026 / 2 August</b> — TT Assen development run created during and immediately after the circuit visit: first-cup build, learning pass, hook fixes, continuous-hook pass, 1.6× world-scale pass, clockwise official-detail pass and subsequent input refinement.</li>
+<li><b>v93 — Green Shield Input Restoration</b> — Normal tap on ITEM fires the green shield forward again. Long press (&gt; 0.38s) holds the shield. Releasing after long press drops the shield behind the kart. Dropper behavior remains unchanged.</li>
+</ul>
+</section>
+<section class="card">
+<h2>Version index</h2>
+<div class="controls">
+<input id="q" oninput="filterRows()" placeholder="filter versions, filenames, categories…"/>
+<select id="cat" onchange="filterRows()">
+<option value="">all categories</option>
+<option>CPU / rivals</option><option>Core prototype</option><option>Handling</option><option>Items / hazards</option><option>Race / cup flow</option><option>Track 1 / visuals</option><option>Track roster</option><option>StateLens / telemetry</option><option>TT Assen / field provenance</option>
+</select>
+<a href="./manifest.json">manifest.json</a>
+</div>
+<table id="versions">
+<thead><tr><th>Version</th><th>Playable file</th><th>Category</th><th>Size</th><th>SHA-256 prefix</th></tr></thead>
+<tbody>
+<tr data-category="Core prototype" data-file="index.html">
+<td class="ver">v1 / index</td>
+<td>
+<a href="../driftline_gp_v1_initial_prototype.html">Index</a>
+<div class="file">index.html</div>
+</td>
+<td>Core prototype</td>
+<td>55 KB</td>
+<td><code>a4b137735242</code></td>
+</tr>
+<tr data-category="CPU / rivals" data-file="driftline_gp_v2_mobile_cpu_itemroulette.html">
+<td class="ver">v2</td>
+<td>
+<a href="../driftline_gp_v2_mobile_cpu_itemroulette.html">Mobile CPU Itemroulette</a>
+<div class="file">driftline_gp_v2_mobile_cpu_itemroulette.html</div>
+</td>
+<td>CPU / rivals</td>
+<td>58 KB</td>
+<td><code>0825063d6afa</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v3_cpu_scale_itempads_points.html">
+<td class="ver">v3</td>
+<td>
+<a href="../driftline_gp_v3_cpu_scale_itempads_points.html">CPU Scale Itempads Points</a>
+<div class="file">driftline_gp_v3_cpu_scale_itempads_points.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>61 KB</td>
+<td><code>8d698d57bb9b</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v4_startgrid_shellitems_hud.html">
+<td class="ver">v4</td>
+<td>
+<a href="../driftline_gp_v4_startgrid_shellitems_hud.html">Startgrid Shellitems HUD</a>
+<div class="file">driftline_gp_v4_startgrid_shellitems_hud.html</div>
+</td>
+<td>Items / hazards</td>
+<td>66 KB</td>
+<td><code>cc9e901e08ab</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v5_cleantrack_overlay_minimap.html">
+<td class="ver">v5</td>
+<td>
+<a href="../driftline_gp_v5_cleantrack_overlay_minimap.html">Cleantrack Overlay Minimap</a>
+<div class="file">driftline_gp_v5_cleantrack_overlay_minimap.html</div>
+</td>
+<td>Core prototype</td>
+<td>68 KB</td>
+<td><code>3ee82256850c</code></td>
+</tr>
+<tr data-category="CPU / rivals" data-file="driftline_gp_v7_cpu_tweak_core.html">
+<td class="ver">v7</td>
+<td>
+<a href="../driftline_gp_v7_cpu_tweak_core.html">CPU Tweak Core</a>
+<div class="file">driftline_gp_v7_cpu_tweak_core.html</div>
+</td>
+<td>CPU / rivals</td>
+<td>80 KB</td>
+<td><code>af03f17fbb43</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v8_ds_map_coin_stability.html">
+<td class="ver">v8</td>
+<td>
+<a href="../driftline_gp_v8_ds_map_coin_stability.html">Ds Map Coin Stability</a>
+<div class="file">driftline_gp_v8_ds_map_coin_stability.html</div>
+</td>
+<td>Core prototype</td>
+<td>82 KB</td>
+<td><code>2d923d6f357f</code></td>
+</tr>
+<tr data-category="Handling" data-file="driftline_gp_v9_mass_friction_drift.html">
+<td class="ver">v9</td>
+<td>
+<a href="../driftline_gp_v9_mass_friction_drift.html">Mass Friction Drift</a>
+<div class="file">driftline_gp_v9_mass_friction_drift.html</div>
+</td>
+<td>Handling</td>
+<td>88 KB</td>
+<td><code>1f19fc5f17a0</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v11_position_rescue_timer_items.html">
+<td class="ver">v11</td>
+<td>
+<a href="../driftline_gp_v11_position_rescue_timer_items.html">Position Rescue Timer Items</a>
+<div class="file">driftline_gp_v11_position_rescue_timer_items.html</div>
+</td>
+<td>Items / hazards</td>
+<td>114 KB</td>
+<td><code>ee659fa24979</code></td>
+</tr>
+<tr data-category="Handling" data-file="driftline_gp_v11_1_drift_freeze_fix.html">
+<td class="ver">v11.1</td>
+<td>
+<a href="../driftline_gp_v11_1_drift_freeze_fix.html">Drift Freeze Fix</a>
+<div class="file">driftline_gp_v11_1_drift_freeze_fix.html</div>
+</td>
+<td>Handling</td>
+<td>114 KB</td>
+<td><code>bf11236122f7</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v12_item_rendering_hitstate.html">
+<td class="ver">v12</td>
+<td>
+<a href="../driftline_gp_v12_item_rendering_hitstate.html">Item Rendering Hitstate</a>
+<div class="file">driftline_gp_v12_item_rendering_hitstate.html</div>
+</td>
+<td>Items / hazards</td>
+<td>126 KB</td>
+<td><code>78fdeda03f06</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v14_track_complexity_z_start_rescue.html">
+<td class="ver">v14</td>
+<td>
+<a href="../driftline_gp_v14_track_complexity_z_start_rescue.html">Track Complexity Z Start Rescue</a>
+<div class="file">driftline_gp_v14_track_complexity_z_start_rescue.html</div>
+</td>
+<td>Core prototype</td>
+<td>170 KB</td>
+<td><code>da94cd019e48</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v15_start_grid_bridge_fix.html">
+<td class="ver">v15</td>
+<td>
+<a href="../driftline_gp_v15_start_grid_bridge_fix.html">Start Grid Bridge Fix</a>
+<div class="file">driftline_gp_v15_start_grid_bridge_fix.html</div>
+</td>
+<td>Core prototype</td>
+<td>189 KB</td>
+<td><code>51eac3e02626</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v16_best_playable_rebuild.html">
+<td class="ver">v16</td>
+<td>
+<a href="../driftline_gp_v16_best_playable_rebuild.html">Best Playable Rebuild</a>
+<div class="file">driftline_gp_v16_best_playable_rebuild.html</div>
+</td>
+<td>Core prototype</td>
+<td>147 KB</td>
+<td><code>85b26698fecb</code></td>
+</tr>
+<tr data-category="Track roster" data-file="driftline_gp_v18_track_redesign_beach_biomes.html">
+<td class="ver">v18</td>
+<td>
+<a href="../driftline_gp_v18_track_redesign_beach_biomes.html">Track Redesign Beach Biomes</a>
+<div class="file">driftline_gp_v18_track_redesign_beach_biomes.html</div>
+</td>
+<td>Track roster</td>
+<td>192 KB</td>
+<td><code>dda55ff3b9bd</code></td>
+</tr>
+<tr data-category="Track roster" data-file="driftline_gp_v19_beach_more_sea.html">
+<td class="ver">v19</td>
+<td>
+<a href="../driftline_gp_v19_beach_more_sea.html">Beach More Sea</a>
+<div class="file">driftline_gp_v19_beach_more_sea.html</div>
+</td>
+<td>Track roster</td>
+<td>194 KB</td>
+<td><code>4a2ad9da04c0</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v21_global_looser_edges.html">
+<td class="ver">v21</td>
+<td>
+<a href="../driftline_gp_v21_global_looser_edges.html">Global Looser Edges</a>
+<div class="file">driftline_gp_v21_global_looser_edges.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>195 KB</td>
+<td><code>c83022b04a25</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v22_seeker_true_homing.html">
+<td class="ver">v22</td>
+<td>
+<a href="../driftline_gp_v22_seeker_true_homing.html">Seeker True Homing</a>
+<div class="file">driftline_gp_v22_seeker_true_homing.html</div>
+</td>
+<td>Items / hazards</td>
+<td>202 KB</td>
+<td><code>6c04c7949acd</code></td>
+</tr>
+<tr data-category="Track roster" data-file="driftline_gp_v23_ghost_rescue_countdown_light.html">
+<td class="ver">v23</td>
+<td>
+<a href="../driftline_gp_v23_ghost_rescue_countdown_light.html">Ghost Rescue Countdown Light</a>
+<div class="file">driftline_gp_v23_ghost_rescue_countdown_light.html</div>
+</td>
+<td>Track roster</td>
+<td>208 KB</td>
+<td><code>9cf7c94a7d62</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v23_rescue_failsafe.html">
+<td class="ver">v23</td>
+<td>
+<a href="../driftline_gp_v23_rescue_failsafe.html">Rescue Failsafe</a>
+<div class="file">driftline_gp_v23_rescue_failsafe.html</div>
+</td>
+<td>Core prototype</td>
+<td>209 KB</td>
+<td><code>6be3f62b30b8</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v24_start_stoplight_hardfix.html">
+<td class="ver">v24</td>
+<td>
+<a href="../driftline_gp_v24_start_stoplight_hardfix.html">Start Stoplight Hardfix</a>
+<div class="file">driftline_gp_v24_start_stoplight_hardfix.html</div>
+</td>
+<td>Core prototype</td>
+<td>212 KB</td>
+<td><code>3fd882981b02</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v25_closed_tracks_green_light_projectiles.html">
+<td class="ver">v25</td>
+<td>
+<a href="../driftline_gp_v25_closed_tracks_green_light_projectiles.html">Closed Tracks Green Light Projectiles</a>
+<div class="file">driftline_gp_v25_closed_tracks_green_light_projectiles.html</div>
+</td>
+<td>Core prototype</td>
+<td>218 KB</td>
+<td><code>896f5ff9056d</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v26_beach_sky_cleanup.html">
+<td class="ver">v26</td>
+<td>
+<a href="../driftline_gp_v26_beach_sky_cleanup.html">Beach Sky Cleanup</a>
+<div class="file">driftline_gp_v26_beach_sky_cleanup.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>221 KB</td>
+<td><code>29a297492581</code></td>
+</tr>
+<tr data-category="CPU / rivals" data-file="driftline_gp_v28_cc_rubberband_ai.html">
+<td class="ver">v28</td>
+<td>
+<a href="../driftline_gp_v28_cc_rubberband_ai.html">CC Rubberband AI</a>
+<div class="file">driftline_gp_v28_cc_rubberband_ai.html</div>
+</td>
+<td>CPU / rivals</td>
+<td>245 KB</td>
+<td><code>e787e90b68d0</code></td>
+</tr>
+<tr data-category="CPU / rivals" data-file="driftline_gp_v29_spin_reverse_rubberband_tune.html">
+<td class="ver">v29</td>
+<td>
+<a href="../driftline_gp_v29_spin_reverse_rubberband_tune.html">Spin Reverse Rubberband Tune</a>
+<div class="file">driftline_gp_v29_spin_reverse_rubberband_tune.html</div>
+</td>
+<td>CPU / rivals</td>
+<td>249 KB</td>
+<td><code>c8ebff8bbc9a</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v31_gp_results_style_flow.html">
+<td class="ver">v31</td>
+<td>
+<a href="../driftline_gp_v31_gp_results_style_flow.html">GP Results Style Flow</a>
+<div class="file">driftline_gp_v31_gp_results_style_flow.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>271 KB</td>
+<td><code>4395d9005fd1</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v33_reverse_detection_fix.html">
+<td class="ver">v33</td>
+<td>
+<a href="../driftline_gp_v33_reverse_detection_fix.html">Reverse Detection Fix</a>
+<div class="file">driftline_gp_v33_reverse_detection_fix.html</div>
+</td>
+<td>Core prototype</td>
+<td>280 KB</td>
+<td><code>edf26863cb06</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v35_lap_init_and_finish_fix.html">
+<td class="ver">v35</td>
+<td>
+<a href="../driftline_gp_v35_lap_init_and_finish_fix.html">Lap Init And Finish Fix</a>
+<div class="file">driftline_gp_v35_lap_init_and_finish_fix.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>288 KB</td>
+<td><code>c3e03f4ba8d6</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v36_lap_0_3_four_round_fix.html">
+<td class="ver">v36</td>
+<td>
+<a href="../driftline_gp_v36_lap_0_3_four_round_fix.html">Lap 0 3 Four Round Fix</a>
+<div class="file">driftline_gp_v36_lap_0_3_four_round_fix.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>293 KB</td>
+<td><code>48d7a7bf42d0</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v37_lap_skip_countdown_cleanup.html">
+<td class="ver">v37</td>
+<td>
+<a href="../driftline_gp_v37_lap_skip_countdown_cleanup.html">Lap Skip Countdown Cleanup</a>
+<div class="file">driftline_gp_v37_lap_skip_countdown_cleanup.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>300 KB</td>
+<td><code>5b56737f9c56</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v38_center_finish_auto_points.html">
+<td class="ver">v38</td>
+<td>
+<a href="../driftline_gp_v38_center_finish_auto_points.html">Center Finish Auto Points</a>
+<div class="file">driftline_gp_v38_center_finish_auto_points.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>309 KB</td>
+<td><code>83d0b18ab81d</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v39_snes_itemboxes_clean_hud.html">
+<td class="ver">v39</td>
+<td>
+<a href="../driftline_gp_v39_snes_itemboxes_clean_hud.html">SNES Itemboxes Clean HUD</a>
+<div class="file">driftline_gp_v39_snes_itemboxes_clean_hud.html</div>
+</td>
+<td>Items / hazards</td>
+<td>320 KB</td>
+<td><code>01de4193f653</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v40_finish_portraits.html">
+<td class="ver">v40</td>
+<td>
+<a href="../driftline_gp_v40_finish_portraits.html">Finish Portraits</a>
+<div class="file">driftline_gp_v40_finish_portraits.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>321 KB</td>
+<td><code>9f3dd96939a9</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v41_minimap_finish_results_then_count.html">
+<td class="ver">v41</td>
+<td>
+<a href="../driftline_gp_v41_minimap_finish_results_then_count.html">Minimap Finish Results Then Count</a>
+<div class="file">driftline_gp_v41_minimap_finish_results_then_count.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>325 KB</td>
+<td><code>82a34324c3cf</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v42_final_lap_animated_results.html">
+<td class="ver">v42</td>
+<td>
+<a href="../driftline_gp_v42_final_lap_animated_results.html">Final Lap Animated Results</a>
+<div class="file">driftline_gp_v42_final_lap_animated_results.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>335 KB</td>
+<td><code>385272baae90</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v43_final_lap_square_live_count.html">
+<td class="ver">v43</td>
+<td>
+<a href="../driftline_gp_v43_final_lap_square_live_count.html">Final Lap Square Live Count</a>
+<div class="file">driftline_gp_v43_final_lap_square_live_count.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>342 KB</td>
+<td><code>efb7d19532f2</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v44_results_next_race_main_menu.html">
+<td class="ver">v44</td>
+<td>
+<a href="../driftline_gp_v44_results_next_race_main_menu.html">Results Next Race Main Menu</a>
+<div class="file">driftline_gp_v44_results_next_race_main_menu.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>342 KB</td>
+<td><code>128a383e2674</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v45_cups_trophies_buttons.html">
+<td class="ver">v45</td>
+<td>
+<a href="../driftline_gp_v45_cups_trophies_buttons.html">Cups Trophies Buttons</a>
+<div class="file">driftline_gp_v45_cups_trophies_buttons.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>354 KB</td>
+<td><code>a97f6d2326be</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v46_compact_point_count_next_race.html">
+<td class="ver">v46</td>
+<td>
+<a href="../driftline_gp_v46_compact_point_count_next_race.html">Compact Point Count Next Race</a>
+<div class="file">driftline_gp_v46_compact_point_count_next_race.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>364 KB</td>
+<td><code>4a36c1635a48</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v47_redesigned_tracks_optimized.html">
+<td class="ver">v47</td>
+<td>
+<a href="../driftline_gp_v47_redesigned_tracks_optimized.html">Redesigned Tracks Optimized</a>
+<div class="file">driftline_gp_v47_redesigned_tracks_optimized.html</div>
+</td>
+<td>Core prototype</td>
+<td>386 KB</td>
+<td><code>34de8d293db8</code></td>
+</tr>
+<tr data-category="Handling" data-file="driftline_gp_v48_drift_button_repaired.html">
+<td class="ver">v48</td>
+<td>
+<a href="../driftline_gp_v48_drift_button_repaired.html">Drift Button Repaired</a>
+<div class="file">driftline_gp_v48_drift_button_repaired.html</div>
+</td>
+<td>Handling</td>
+<td>391 KB</td>
+<td><code>ee180bc470cc</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v49_lap_and_cup_flow_fixed.html">
+<td class="ver">v49</td>
+<td>
+<a href="../driftline_gp_v49_lap_and_cup_flow_fixed.html">Lap And Cup Flow Fixed</a>
+<div class="file">driftline_gp_v49_lap_and_cup_flow_fixed.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>401 KB</td>
+<td><code>ceae8c6f2db2</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v51_four_state_lap_flow.html">
+<td class="ver">v51</td>
+<td>
+<a href="../driftline_gp_v51_four_state_lap_flow.html">Four State Lap Flow</a>
+<div class="file">driftline_gp_v51_four_state_lap_flow.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>411 KB</td>
+<td><code>f66388f510fd</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v52_hud_and_point_count_restored.html">
+<td class="ver">v52</td>
+<td>
+<a href="../driftline_gp_v52_hud_and_point_count_restored.html">HUD And Point Count Restored</a>
+<div class="file">driftline_gp_v52_hud_and_point_count_restored.html</div>
+</td>
+<td>Core prototype</td>
+<td>413 KB</td>
+<td><code>266d1d7ffaaf</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v53_hidden_minus_one_start_lap.html">
+<td class="ver">v53</td>
+<td>
+<a href="../driftline_gp_v53_hidden_minus_one_start_lap.html">Hidden Minus One Start Lap</a>
+<div class="file">driftline_gp_v53_hidden_minus_one_start_lap.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>419 KB</td>
+<td><code>3e5579c4eecd</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v54_laps_good_points_next_race_restored.html">
+<td class="ver">v54</td>
+<td>
+<a href="../driftline_gp_v54_laps_good_points_next_race_restored.html">Laps Good Points Next Race Restored</a>
+<div class="file">driftline_gp_v54_laps_good_points_next_race_restored.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>427 KB</td>
+<td><code>f0c8155b40cc</code></td>
+</tr>
+<tr data-category="CPU / rivals" data-file="driftline_gp_v55_cpu_overtake_rival_theatre.html">
+<td class="ver">v55</td>
+<td>
+<a href="../driftline_gp_v55_cpu_overtake_rival_theatre.html">CPU Overtake Rival Theatre</a>
+<div class="file">driftline_gp_v55_cpu_overtake_rival_theatre.html</div>
+</td>
+<td>CPU / rivals</td>
+<td>442 KB</td>
+<td><code>a911ae12b429</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v56_cc_select_grand_prix_flow.html">
+<td class="ver">v56</td>
+<td>
+<a href="../driftline_gp_v56_cc_select_grand_prix_flow.html">CC Select Grand Prix Flow</a>
+<div class="file">driftline_gp_v56_cc_select_grand_prix_flow.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>455 KB</td>
+<td><code>fb0f3a2ca218</code></td>
+</tr>
+<tr data-category="Race / cup flow" data-file="driftline_gp_v57_simplified_cup_flow_trophies.html">
+<td class="ver">v57</td>
+<td>
+<a href="../driftline_gp_v57_simplified_cup_flow_trophies.html">Simplified Cup Flow Trophies</a>
+<div class="file">driftline_gp_v57_simplified_cup_flow_trophies.html</div>
+</td>
+<td>Race / cup flow</td>
+<td>465 KB</td>
+<td><code>fbefe17d5f9e</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v58_track1_reference_layout.html">
+<td class="ver">v58</td>
+<td>
+<a href="../driftline_gp_v58_track1_reference_layout.html">Track1 Reference Layout</a>
+<div class="file">driftline_gp_v58_track1_reference_layout.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>468 KB</td>
+<td><code>387835adcfaf</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v59_track1_ccw_colors.html">
+<td class="ver">v59</td>
+<td>
+<a href="../driftline_gp_v59_track1_ccw_colors.html">Track1 Ccw Colors</a>
+<div class="file">driftline_gp_v59_track1_ccw_colors.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>475 KB</td>
+<td><code>eff139e49d33</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v60_track1_single_item_gate.html">
+<td class="ver">v60</td>
+<td>
+<a href="../driftline_gp_v60_track1_single_item_gate.html">Track1 Single Item Gate</a>
+<div class="file">driftline_gp_v60_track1_single_item_gate.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>482 KB</td>
+<td><code>a5806e803fb3</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v62_master_track1.html">
+<td class="ver">v62</td>
+<td>
+<a href="../driftline_gp_v62_master_track1.html">Master Track1</a>
+<div class="file">driftline_gp_v62_master_track1.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>493 KB</td>
+<td><code>ebffd1edbbb3</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v63_track1_assets_integrated.html">
+<td class="ver">v63</td>
+<td>
+<a href="../driftline_gp_v63_track1_assets_integrated.html">Track1 Assets Integrated</a>
+<div class="file">driftline_gp_v63_track1_assets_integrated.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>512 KB</td>
+<td><code>797d7b99f0f4</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v64_track1_edges_cleanup.html">
+<td class="ver">v64</td>
+<td>
+<a href="../driftline_gp_v64_track1_edges_cleanup.html">Track1 Edges Cleanup</a>
+<div class="file">driftline_gp_v64_track1_edges_cleanup.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>530 KB</td>
+<td><code>14fccb81f7cb</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v65_track1_3d_world_focus.html">
+<td class="ver">v65</td>
+<td>
+<a href="../driftline_gp_v65_track1_3d_world_focus.html">Track1 3d World Focus</a>
+<div class="file">driftline_gp_v65_track1_3d_world_focus.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>540 KB</td>
+<td><code>ed72335dc6ec</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v66_minimap_racerselect_loadfix.html">
+<td class="ver">v66</td>
+<td>
+<a href="../driftline_gp_v66_minimap_racerselect_loadfix.html">Minimap Racerselect Loadfix</a>
+<div class="file">driftline_gp_v66_minimap_racerselect_loadfix.html</div>
+</td>
+<td>Core prototype</td>
+<td>517 KB</td>
+<td><code>134e0e40b2ea</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v67_track1_3d_colored_walls_sync.html">
+<td class="ver">v67</td>
+<td>
+<a href="../driftline_gp_v67_track1_3d_colored_walls_sync.html">Track1 3d Colored Walls Sync</a>
+<div class="file">driftline_gp_v67_track1_3d_colored_walls_sync.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>517 KB</td>
+<td><code>061c8a6f7ee2</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v68_track1_solid_walls_pastel_sky.html">
+<td class="ver">v68</td>
+<td>
+<a href="../driftline_gp_v68_track1_solid_walls_pastel_sky.html">Track1 Solid Walls Pastel Sky</a>
+<div class="file">driftline_gp_v68_track1_solid_walls_pastel_sky.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>522 KB</td>
+<td><code>a803a3ca1f8b</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v69_green_bouncer_wall_ricochet.html">
+<td class="ver">v69</td>
+<td>
+<a href="../driftline_gp_v69_green_bouncer_wall_ricochet.html">Green Bouncer Wall Ricochet</a>
+<div class="file">driftline_gp_v69_green_bouncer_wall_ricochet.html</div>
+</td>
+<td>Items / hazards</td>
+<td>525 KB</td>
+<td><code>4d7b84406d79</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v70_track1_precise_wall_collision.html">
+<td class="ver">v70</td>
+<td>
+<a href="../driftline_gp_v70_track1_precise_wall_collision.html">Track1 Precise Wall Collision</a>
+<div class="file">driftline_gp_v70_track1_precise_wall_collision.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>529 KB</td>
+<td><code>a066a13644c8</code></td>
+</tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v71_road_safe_walls_minimap_items.html">
+<td class="ver">v71</td>
+<td>
+<a href="../driftline_gp_v71_road_safe_walls_minimap_items.html">Road Safe Walls Minimap Items</a>
+<div class="file">driftline_gp_v71_road_safe_walls_minimap_items.html</div>
+</td>
+<td>Items / hazards</td>
+<td>535 KB</td>
+<td><code>1c15a0d9a1a1</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v73_aura_rainbow_world_minimap.html">
+<td class="ver">v73</td>
+<td>
+<a href="../driftline_gp_v73_aura_rainbow_world_minimap.html">Aura Rainbow World Minimap</a>
+<div class="file">driftline_gp_v73_aura_rainbow_world_minimap.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>544 KB</td>
+<td><code>a565e9d397a8</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v74_crisp_retro_plus_resolution.html">
+<td class="ver">v74</td>
+<td>
+<a href="../driftline_gp_v74_crisp_retro_plus_resolution.html">Crisp Retro Plus Resolution</a>
+<div class="file">driftline_gp_v74_crisp_retro_plus_resolution.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>548 KB</td>
+<td><code>56a0eb85904b</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v75_road_checker_cleanup.html">
+<td class="ver">v75</td>
+<td>
+<a href="../driftline_gp_v75_road_checker_cleanup.html">Road Checker Cleanup</a>
+<div class="file">driftline_gp_v75_road_checker_cleanup.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>552 KB</td>
+<td><code>c8ee5f63f52c</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v76_anti_stuck_rescue.html">
+<td class="ver">v76</td>
+<td>
+<a href="../driftline_gp_v76_anti_stuck_rescue.html">Anti Stuck Rescue</a>
+<div class="file">driftline_gp_v76_anti_stuck_rescue.html</div>
+</td>
+<td>Core prototype</td>
+<td>555 KB</td>
+<td><code>3dda0178907b</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v77_free_ride_track_select.html">
+<td class="ver">v77</td>
+<td>
+<a href="../driftline_gp_v77_free_ride_track_select.html">Free Ride Track Select</a>
+<div class="file">driftline_gp_v77_free_ride_track_select.html</div>
+</td>
+<td>Core prototype</td>
+<td>561 KB</td>
+<td><code>d91439274433</code></td>
+</tr>
+<tr data-category="StateLens / telemetry" data-file="driftline_gp_v78_statelens_reactive_states.html">
+<td class="ver">v78</td>
+<td>
+<a href="../driftline_gp_v78_statelens_reactive_states.html">StateLens Reactive States</a>
+<div class="file">driftline_gp_v78_statelens_reactive_states.html</div>
+</td>
+<td>StateLens / telemetry</td>
+<td>572 KB</td>
+<td><code>0fbe7a63b57a</code></td>
+</tr>
+<tr data-category="StateLens / telemetry" data-file="driftline_gp_v79_stateplate_lowered.html">
+<td class="ver">v79</td>
+<td>
+<a href="../driftline_gp_v79_stateplate_lowered.html">Stateplate Lowered</a>
+<div class="file">driftline_gp_v79_stateplate_lowered.html</div>
+</td>
+<td>StateLens / telemetry</td>
+<td>572 KB</td>
+<td><code>95e323bac0eb</code></td>
+</tr>
+<tr data-category="StateLens / telemetry" data-file="driftline_gp_v80_drift_scout_left_right.html">
+<td class="ver">v80</td>
+<td>
+<a href="../driftline_gp_v80_drift_scout_left_right.html">Drift Scout Left Right</a>
+<div class="file">driftline_gp_v80_drift_scout_left_right.html</div>
+</td>
+<td>StateLens / telemetry</td>
+<td>573 KB</td>
+<td><code>05dd0d0dfe6a</code></td>
+</tr>
+<tr data-category="Track 1 / visuals" data-file="driftline_gp_v81_track1_bliksemblokken.html">
+<td class="ver">v81</td>
+<td>
+<a href="../driftline_gp_v81_track1_bliksemblokken.html">Track1 Bliksemblokken</a>
+<div class="file">driftline_gp_v81_track1_bliksemblokken.html</div>
+</td>
+<td>Track 1 / visuals</td>
+<td>576 KB</td>
+<td><code>8e8766818be1</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v82_pc_stack_hires_keyboard.html">
+<td class="ver">v82</td>
+<td>
+<a href="../driftline_gp_v82_pc_stack_hires_keyboard.html">PC Stack Hires Keyboard</a>
+<div class="file">driftline_gp_v82_pc_stack_hires_keyboard.html</div>
+</td>
+<td>Core prototype</td>
+<td>588 KB</td>
+<td><code>3f73e4d96482</code></td>
+</tr>
+<tr data-category="Handling" data-file="driftline_gp_v83_directional_keyboard_drift.html">
+<td class="ver">v83</td>
+<td>
+<a href="../driftline_gp_v83_directional_keyboard_drift.html">Directional Keyboard Drift</a>
+<div class="file">driftline_gp_v83_directional_keyboard_drift.html</div>
+</td>
+<td>Handling</td>
+<td>589 KB</td>
+<td><code>fa5ee956bc10</code></td>
+</tr>
+<tr data-category="Core prototype" data-file="driftline_gp_v84_loading_provenance_link.html">
+<td class="ver">v84</td>
+<td>
+<a href="../driftline_gp_v84_loading_provenance_link.html">Loading State &amp; Provenance Link</a>
+<div class="file">driftline_gp_v84_loading_provenance_link.html</div>
+</td>
+<td>Core prototype</td>
+<td>594 KB</td>
+<td><code>057c990df9cb</code></td>
+</tr>
+
+<tr data-category="Items / hazards" data-file="driftline_gp_v85_item_hold_offroad_seeker.html"><td class="ver">v85</td><td><a href="../driftline_gp_v85_item_hold_offroad_seeker.html">Item Hold, Off-road &amp; Seeker</a><div class="file">driftline_gp_v85_item_hold_offroad_seeker.html</div></td><td>Items / hazards</td><td>601 KB</td><td><code>63c388b8aa34</code></td></tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v86_held_item_visuals.html"><td class="ver">v86</td><td><a href="../driftline_gp_v86_held_item_visuals.html">Held Item Visuals</a><div class="file">driftline_gp_v86_held_item_visuals.html</div></td><td>Items / hazards</td><td>605 KB</td><td><code>0dbea0b82bf8</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v87_tt_assen_first_cup.html"><td class="ver">v87</td><td><a href="../driftline_gp_v87_tt_assen_first_cup.html">TT Assen First Cup</a><div class="file">driftline_gp_v87_tt_assen_first_cup.html</div></td><td>TT Assen / field provenance</td><td>606 KB</td><td><code>f0067ae9d8a4</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v88_tt_assen_learning_cup.html"><td class="ver">v88</td><td><a href="../driftline_gp_v88_tt_assen_learning_cup.html">TT Assen Learning Cup</a><div class="file">driftline_gp_v88_tt_assen_learning_cup.html</div></td><td>TT Assen / field provenance</td><td>606 KB</td><td><code>626cc8cead2b</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v89_tt_assen_hook_fixed.html"><td class="ver">v89</td><td><a href="../driftline_gp_v89_tt_assen_hook_fixed.html">TT Assen Hook Fixed</a><div class="file">driftline_gp_v89_tt_assen_hook_fixed.html</div></td><td>TT Assen / field provenance</td><td>606 KB</td><td><code>dfe051c63ab4</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v90_tt_assen_continuous_hook.html"><td class="ver">v90</td><td><a href="../driftline_gp_v90_tt_assen_continuous_hook.html">TT Assen Continuous Hook</a><div class="file">driftline_gp_v90_tt_assen_continuous_hook.html</div></td><td>TT Assen / field provenance</td><td>606 KB</td><td><code>90158fcfe3bc</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v91_tt_assen_1_6x_world_scale.html"><td class="ver">v91</td><td><a href="../driftline_gp_v91_tt_assen_1_6x_world_scale.html">TT Assen 1.6× World Scale</a><div class="file">driftline_gp_v91_tt_assen_1_6x_world_scale.html</div></td><td>TT Assen / field provenance</td><td>632 KB</td><td><code>2824c5f72dee</code></td></tr>
+<tr data-category="TT Assen / field provenance" data-file="driftline_gp_v92_tt_assen_clockwise_official_detail_pass.html"><td class="ver">v92</td><td><a href="../driftline_gp_v92_tt_assen_clockwise_official_detail_pass.html">TT Assen Clockwise Official Detail Pass</a><div class="file">driftline_gp_v92_tt_assen_clockwise_official_detail_pass.html</div></td><td>TT Assen / field provenance</td><td>653 KB</td><td><code>b545160a1b89</code></td></tr>
+<tr data-category="Items / hazards" data-file="driftline_gp_v93_green_shield_tap_fire_longpress_drop.html"><td class="ver">v93</td><td><a href="../driftline_gp_v93_green_shield_tap_fire_longpress_drop.html">Green Shield Tap Fire / Long-Press Drop</a><div class="file">driftline_gp_v93_green_shield_tap_fire_longpress_drop.html</div></td><td>Items / hazards</td><td>654 KB</td><td><code>f529f5a890d9</code></td></tr>
+</tbody>
+</table>
+</section>
+<p class="footer">
+    Public provenance archive for Driftline GP.<br/>
+<span style="opacity:.72">Driftline GP uses original code, original procedural art, original racers and original track layouts. It is not affiliated with Nintendo and does not use Nintendo code, assets, characters, audio or track data.</span>
+</p>
+</main>
+<script>
+function filterRows(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  const cat=document.getElementById('cat').value;
+  for(const tr of document.querySelectorAll('#versions tbody tr')){
+    const text=tr.innerText.toLowerCase();
+    const okQ=!q || text.includes(q);
+    const okC=!cat || tr.dataset.category===cat;
+    tr.style.display=(okQ&&okC)?'':'none';
+  }
+}
+</script>
+</body>
+</html>
