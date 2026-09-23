@@ -12292,50 +12292,10 @@ function boot(){/* V84: final boot runs after all patches are installed. */}
   const SFX = {
     ctx:null, master:null, engineGain:null, engineOsc:null, engineSub:null,
     noise:null, lastRoll:-1, lastHit:-1, played:[], unavailable:false,
-    // V99 original audio is generated from new synthesis, never from the reference WAVs.
-    originals:Object.create(null),originalErrors:[],originalPlayed:[],originalLoadStarted:false,
     roadGain:null,roadFilter:null,driftGain:null,driftFilter:null,engineFilter:null,
     wasDrifting:false,lastDriftCharge:0,lastSpeed:0,lastGear:1,shiftDip:0
   };
   const AC=window.AudioContext||window.webkitAudioContext;
-  // V99: original procedural WAVs. Distinct from and independently generated of reference recordings.
-  const ORIGINAL_FX_V99=[
-    'dl_coin_v99.wav','dl_jump_v99.wav','dl_landing_v99.wav',
-    'dl_skid_v99.wav','dl_tick_v99.wav','dl_item_v99.wav',
-    'dl_throw_v99.wav','dl_boost_v99.wav','dl_spin_v99.wav'
-  ];
-  function loadOriginalFxV99(){
-    if(SFX.originalLoadStarted||!SFX.ctx)return;
-    SFX.originalLoadStarted=true;
-    for(const name of ORIGINAL_FX_V99){
-      fetch('./assets/original-fx/'+name,{cache:'force-cache'})
-        .then(response=>{if(!response.ok)throw Error('HTTP '+response.status);return response.arrayBuffer();})
-        .then(bytes=>SFX.ctx.decodeAudioData(bytes))
-        .then(buffer=>{SFX.originals[name]=buffer;})
-        .catch(error=>{SFX.originalErrors.push(name+': '+String(error));});
-    }
-  }
-  function playOriginalFxV99(event,detail){
-    const name=event==='coin'?'dl_coin_v99.wav':
-      event==='jump'?'dl_jump_v99.wav':event==='land'?'dl_landing_v99.wav':
-      event==='driftStart'?'dl_skid_v99.wav':event==='roll'?'dl_tick_v99.wav':
-      event==='lock'?'dl_item_v99.wav':event==='hit'?'dl_spin_v99.wav':
-      event==='use'?(detail==='BOOST'||detail==='AURA'?'dl_boost_v99.wav':'dl_throw_v99.wav'):null;
-    const buffer=name&&SFX.originals[name];
-    if(!buffer||!SFX.ctx||SFX.ctx.state!=='running')return false;
-    try{
-      const a=SFX.ctx, src=a.createBufferSource(), amp=a.createGain();
-      // Short, clearly audible one-shots; lower than retro reference test levels.
-      const levels={coin:.22,jump:.25,land:.20,driftStart:.24,roll:.14,
-        lock:.20,hit:.25,use:.22};
-      src.buffer=buffer;amp.gain.value=levels[event]||.20;
-      src.connect(amp);amp.connect(SFX.master);
-      src.start();src.onended=()=>{try{src.disconnect();amp.disconnect();}catch(_){}};
-      SFX.originalPlayed.push(name);
-      if(SFX.originalPlayed.length>60)SFX.originalPlayed.shift();
-      return true;
-    }catch(error){SFX.originalErrors.push(name+': '+String(error));return false;}
-  }
   function unlockSoundV94(){
     if(!AC||SFX.unavailable)return;
     try{
@@ -12382,7 +12342,6 @@ function boot(){/* V84: final boot runs after all patches are installed. */}
   let playGateCompletedV95=false;
   function clickPlayWithAudioV95(){
     unlockSoundV94();
-    loadOriginalFxV99();
     if(SFX.ctx && SFX.master){
       try {
         const a=SFX.ctx, now=a.currentTime, osc=a.createOscillator(), gain=a.createGain();
@@ -12439,15 +12398,6 @@ function boot(){/* V84: final boot runs after all patches are installed. */}
   function soundV94(event,detail){
     if(!readyV94())return;
     const now=SFX.ctx.currentTime;
-    // Keep event rate limits during sample playback; synthesized v97 is the safe fallback.
-    if(event==='roll'&&now-SFX.lastRoll<.078)return;
-    if(event==='hit'&&now-SFX.lastHit<.105)return;
-    if(playOriginalFxV99(event,detail)){
-      if(event==='roll')SFX.lastRoll=now;
-      if(event==='hit')SFX.lastHit=now;
-      SFX.played.push(event);if(SFX.played.length>60)SFX.played.shift();
-      return;
-    }
     try{
       switch(event){
         case 'coin':
